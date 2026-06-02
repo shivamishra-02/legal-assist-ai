@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LegalAssist AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <div class="logo">⚖️ LegalAssist AI</div>
+      <p class="tagline">Upload legal documents. Ask questions. Get instant answers.</p>
+    </header>
+
+    <!-- Upload Section -->
+    <section class="card" id="upload-section">
+      <h2>📄 Upload Document</h2>
+      <div class="upload-area" id="drop-zone">
+        <input type="file" id="file-input" accept=".pdf,.docx" hidden />
+        <div class="upload-placeholder" onclick="document.getElementById('file-input').click()">
+          <span class="upload-icon">⬆️</span>
+          <p>Click to upload or drag & drop</p>
+          <p class="muted">PDF, DOCX supported</p>
+        </div>
+      </div>
+      <div id="upload-status" class="status-box hidden"></div>
+    </section>
+
+    <!-- Query Section -->
+    <section class="card" id="query-section">
+      <h2>💬 Ask a Question</h2>
+      <div class="query-suggestions">
+        <span class="chip" onclick="setQuery(this)">What are the payment terms?</span>
+        <span class="chip" onclick="setQuery(this)">List all obligations of the parties</span>
+        <span class="chip" onclick="setQuery(this)">What are the termination clauses?</span>
+        <span class="chip" onclick="setQuery(this)">Are there any penalty clauses?</span>
+      </div>
+      <div class="input-row">
+        <input
+          type="text"
+          id="query-input"
+          placeholder="e.g. What is the notice period for termination?"
+        />
+        <button id="ask-btn" onclick="askQuestion()">Ask ↗</button>
+      </div>
+    </section>
+
+    <!-- Answer Section -->
+    <section class="card hidden" id="answer-section">
+      <h2>🤖 Answer</h2>
+      <div id="answer-text" class="answer-body"></div>
+      <div id="sources-section" class="sources hidden">
+        <h3>📎 Sources</h3>
+        <div id="sources-list"></div>
+      </div>
+    </section>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Analyzing document with AI...</p>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
