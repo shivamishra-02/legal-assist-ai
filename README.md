@@ -12,7 +12,7 @@ RAG-powered legal document analyzer built with **FastAPI + LangChain + Gemini + 
 
 ```bash
 # 1. Clone & enter
-git clone https://github.com/yourusername/legal-assist-ai.git
+git clone https://github.com/shivamishra-02/legal-assist-ai.git
 cd legal-assist-ai
 
 # 2. Backend setup
